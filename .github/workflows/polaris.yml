@@ -25,7 +25,7 @@ jobs:
         polaris_serverUrl: ${{ vars.POLARIS_SERVERURL }}
         polaris_accessToken: ${{ secrets.POLARIS_ACCESSTOKEN }}
         polaris_application_name: RDJ-CICD
-        polaris_project_name: RDJ-GH-${{ github.event.repository.name }}
+        polaris_project_name: RDJ-GH-Webgoat
         polaris_assessment_types: 'SAST,SCA'
         polaris_prComment_enabled: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
