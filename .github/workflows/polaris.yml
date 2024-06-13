@@ -20,14 +20,16 @@ jobs:
         distribution: microsoft
         cache: maven
     - name: Polaris Scan
-      uses: synopsys-sig/synopsys-action@v1.5.0
+      uses: synopsys-sig/synopsys-action@v1.9.0
       with:
-        polaris_serverUrl: ${{ vars.POLARIS_SERVERURL }}
-        polaris_accessToken: ${{ secrets.POLARIS_ACCESSTOKEN }}
-        polaris_application_name: RDJ-CICD
-        polaris_project_name: RDJ-GH-Webgoat
+        polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
+        polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
+        polaris_application_name: RDJ-demo-app
+        polaris_project_name: RDJ-GH-WebGoat
         polaris_assessment_types: 'SAST,SCA'
-        polaris_prComment_enabled: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+        polaris_prComment_enabled: 'true'
+        polaris_reports_sarif_create: 'true'
+        polaris_upload_sarif_report: 'true'
         github_token: ${{ secrets.GITHUB_TOKEN }}
 #    - name: Save Logs
 #      if: always()
